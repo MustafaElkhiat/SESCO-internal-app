@@ -15,6 +15,8 @@ import Filters from "@/components/filteration";
 import useSWR from "swr";
 import {POSTAPI,PUTAPI} from "../../../../utities/test"
 import { toast } from "react-toastify";
+import LoadingAnimation from "../../../../components/LoadingAnimation"; // Adjust the path accordingly
+
 
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
@@ -63,7 +65,7 @@ export default function UserPage() {
   }, [data]);
 
   if (error) return "An error has occurred.";
-  if (isLoading) return "Loading...";
+  if (isLoading) return <LoadingAnimation />;
 
 
   // Handle sorting users based on selected option
