@@ -280,8 +280,7 @@ export default function BookingsPage() {
               transition={{ duration: 0.3, ease: "easeInOut" }} // Custom transition
               className="w-full shadow-xl rounded-t-2xl overflow-hidden "
             >
-              <thead
-               className="bg-gray-300 text-gray-700  border border-gray-300">
+              <thead className="bg-gray-300 text-gray-700  border border-gray-300">
                 <tr>
                   {/* ... your existing table headers */}
                   <th className="py-3 px-6 text-center">NO</th>
@@ -296,39 +295,82 @@ export default function BookingsPage() {
               </thead>
               <tbody>
                 {currentBookings.map((booking, index) => (
-                  <Link
-                    href={`/booking/${booking.bookingNumber}/truckDriver`}
-                    key={index}
-                    legacyBehavior
+                  <tr
+                    className={`border border-gray-300 scale-50 ${
+                      index % 2 === 0 ? "bg-white " : "bg-gray-100"
+                    } hover:bg-sky-100 hover:shadow-md transition-all`}
+                    style={{
+                      cursor: "pointer",
+                      fontSize: "14px",
+                      padding: "8px",
+                    }}
                   >
-                    <tr
-                      className={`border border-gray-300 scale-50 ${
-                        index % 2 === 0 ? "bg-white " : "bg-gray-100"
-                      } hover:bg-sky-100 hover:shadow-md transition-all`}
-                      style={{
-                        cursor: "pointer",
-                        fontSize: "14px",
-                        padding: "8px",
-                      }}
+                    <Link
+                      href={`/booking/${booking.bookingNumber}/truckDriver`}
+                      key={index}
+                      legacyBehavior
                     >
                       <td className=" text-center">
                         {booking.bookingNumber || "..........."}
                       </td>
+                      </Link>
+                      
+                      <Link
+                      href={`/booking/${booking.bookingNumber}/truckDriver`}
+                      key={index}
+                      legacyBehavior
+                    >
                       <td className=" text-center">
                         {booking.workOrderNumber || "..........."}
                       </td>
+                      </Link>
+                      <Link
+                      href={`/booking/${booking.bookingNumber}/truckDriver`}
+                      key={index}
+                      legacyBehavior
+                    >
+
                       <td className="text-center px-2">
                         {booking.vessel.name || "..........."}
                       </td>
+                      </Link>
+
+                      <Link
+                      href={`/booking/${booking.bookingNumber}/truckDriver`}
+                      key={index}
+                      legacyBehavior
+                    >
                       <td className="text-center px-2">
                         {booking.cargo.name || "..........."}
                       </td>
+                      </Link>
+                      <Link
+                      href={`/booking/${booking.bookingNumber}/truckDriver`}
+                      key={index}
+                      legacyBehavior
+                    >
                       <td className="text-center">
                         {booking.subCargo.name || "..........."}
                       </td>
+
+                      </Link>
+                      <Link
+                      href={`/booking/${booking.bookingNumber}/truckDriver`}
+                      key={index}
+                      legacyBehavior
+                    >
                       <td className="text-center">
-                      {booking.imex ? booking.imex.toLowerCase() : "..........."}
+                        {booking.imex
+                          ? booking.imex.toLowerCase()
+                          : "..........."}
                       </td>
+                      </Link>
+
+                      <Link
+                      href={`/booking/${booking.bookingNumber}/truckDriver`}
+                      key={index}
+                      legacyBehavior
+                    >
                       <td className="py-2 px-6 text-center">
                         {booking.status === "Closed" ? (
                           <div className="text-red-500 font-semibold flex">
@@ -342,6 +384,9 @@ export default function BookingsPage() {
                           </div>
                         )}
                       </td>
+
+                      </Link>
+
                       {/* ... other td elements ... */}
                       <td className="py-2 px-6 text-center">
                         <div className="flex items-center justify-center">
@@ -360,8 +405,7 @@ export default function BookingsPage() {
                           />
                         </div>
                       </td>
-                    </tr>
-                  </Link>
+                  </tr>
                 ))}
               </tbody>
             </table>
