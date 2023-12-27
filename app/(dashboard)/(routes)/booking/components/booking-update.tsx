@@ -171,7 +171,7 @@ const UpdateBooking = ({ bookings, booking, onUpdateBooking }) => {
 
   const handleSubmit = (x) => {
     x.preventDefault(); // Prevent the default behavior of the link
-    // e.stopPropagation(); // Stop the event from propagating to the parent (Link)
+    x.stopPropagation(); // Stop the event from propagating to the parent (Link)
     const updatedBookingWithId = { ...updateBooking, id: booking.id };
 
     const upBooking = {
